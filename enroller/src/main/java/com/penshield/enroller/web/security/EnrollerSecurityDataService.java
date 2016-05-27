@@ -1,4 +1,4 @@
-package com.penshield.enroller.security;
+package com.penshield.enroller.web.security;
 
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
