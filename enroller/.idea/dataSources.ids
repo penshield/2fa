@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - enrollerdb@localhost" uuid="bb08de4e-c38e-4216-b5ff-18a8321e6006">
+    <database-info product="MySQL" version="5.5.49-0ubuntu0.14.04.1" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact"/>
+    <schema name="" catalog="enrollerdb"/>
+    <table name="ApplicationPolicies" schema="" catalog="enrollerdb" type="TABLE">
+      <column name="ProtectedApplicationsID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="DefinedPolicyID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="active" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6" def="MQ=="/>
+      <column name="ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <primary-key name="PRIMARY" columns="ID"/>
+      <foreign-key name="FKApplicatio888426" columns="DefinedPolicyID" ref-table="DefinedPolicies" ref-schema="" ref-catalog="enrollerdb" ref-columns="ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FKApplicatio162256" columns="ProtectedApplicationsID" ref-table="ProtectedApplications" ref-schema="" ref-catalog="enrollerdb" ref-columns="ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="FKApplicatio162256" unique="false" columns="ProtectedApplicationsID"/>
+      <index name="FKApplicatio888426" unique="false" columns="DefinedPolicyID"/>
+    </table>
+    <table name="Customer" schema="" catalog="enrollerdb" type="TABLE">
+      <column name="ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="FirstName" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="LastName" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Email" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Type" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <primary-key name="PRIMARY" columns="ID"/>
+      <exported-key name="FKDefinedPol386808" table="DefinedPolicies" schema="" catalog="enrollerdb" columns="CustomerID"/>
+      <exported-key name="FKGroups492552" table="Groups" schema="" catalog="enrollerdb" columns="CustomerID"/>
+      <exported-key name="FKProtectedA771720" table="ProtectedApplications" schema="" catalog="enrollerdb" columns="CustomerID"/>
+      <exported-key name="FKUsers128999" table="Users" schema="" catalog="enrollerdb" columns="CustomerID"/>
+      <index name="Email" unique="true" columns="Email"/>
+      <index name="FirstName" unique="false" columns="FirstName"/>
+      <index name="LastName" unique="false" columns="LastName"/>
+    </table>
+    <table name="DefinedPolicies" schema="" catalog="enrollerdb" type="TABLE">
+      <column name="ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="CustomerID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="UserID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="CreationDate" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91"/>
+      <column name="XMLDefinition" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <primary-key name="PRIMARY" columns="ID"/>
+      <foreign-key name="FKDefinedPol344676" columns="UserID" ref-table="Users" ref-schema="" ref-catalog="enrollerdb" ref-columns="ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FKDefinedPol386808" columns="CustomerID" ref-table="Customer" ref-schema="" ref-catalog="enrollerdb" ref-columns="ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="FKApplicatio888426" table="ApplicationPolicies" schema="" catalog="enrollerdb" columns="DefinedPolicyID"/>
+      <exported-key name="FKGroupsPoli277416" table="GroupsPolicies" schema="" catalog="enrollerdb" columns="DefinedPolicyID"/>
+      <index name="FKDefinedPol344676" unique="false" columns="UserID"/>
+      <index name="FKDefinedPol386808" unique="false" columns="CustomerID"/>
+    </table>
+    <table name="EndPoints" schema="" catalog="enrollerdb" type="TABLE">
+      <column name="ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="Type" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="OS" sqlType="VARCHAR" precision="200" scale="0" nullable="true" jdbcType="12"/>
+      <column name="Browsers" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="SecurityWarnings" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="LastUsed" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91"/>
+      <column name="UserID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="ID"/>
+      <foreign-key name="FKEndPoints271107" columns="UserID" ref-table="Users" ref-schema="" ref-catalog="enrollerdb" ref-columns="ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="FKEndPoints271107" unique="false" columns="UserID"/>
+      <index name="Type" unique="false" columns="Type"/>
+    </table>
+    <table name="Groups" schema="" catalog="enrollerdb" type="TABLE">
+      <column name="ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="GroupName" sqlType="VARCHAR" precision="300" scale="0" nullable="false" jdbcType="12"/>
+      <column name="GroupDescription" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="CustomerID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="ID"/>
+      <foreign-key name="FKGroups492552" columns="CustomerID" ref-table="Customer" ref-schema="" ref-catalog="enrollerdb" ref-columns="ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="FKGroupsPoli671434" table="GroupsPolicies" schema="" catalog="enrollerdb" columns="GroupsID"/>
+      <exported-key name="FKUserGroups359418" table="UserGroups" schema="" catalog="enrollerdb" columns="GroupID"/>
+      <index name="FKGroups492552" unique="false" columns="CustomerID"/>
+      <index name="GroupName" unique="false" columns="GroupName"/>
+    </table>
+    <table name="GroupsPolicies" schema="" catalog="enrollerdb" type="TABLE">
+      <column name="GroupsID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="DefinedPolicyID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="active" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6" def="MQ=="/>
+      <column name="ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <primary-key name="PRIMARY" columns="ID"/>
+      <foreign-key name="FKGroupsPoli277416" columns="DefinedPolicyID" ref-table="DefinedPolicies" ref-schema="" ref-catalog="enrollerdb" ref-columns="ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FKGroupsPoli671434" columns="GroupsID" ref-table="Groups" ref-schema="" ref-catalog="enrollerdb" ref-columns="ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="FKGroupsPoli277416" unique="false" columns="DefinedPolicyID"/>
+      <index name="FKGroupsPoli671434" unique="false" columns="GroupsID"/>
+    </table>
+    <table name="ProtectedApplications" schema="" catalog="enrollerdb" type="TABLE">
+      <column name="ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="CustomerID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="UserID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="IntegrationKey" sqlType="VARCHAR" precision="200" scale="0" nullable="false" jdbcType="12"/>
+      <column name="SecretKey" sqlType="VARCHAR" precision="200" scale="0" nullable="false" jdbcType="12"/>
+      <column name="ContactServerURL" sqlType="VARCHAR" precision="200" scale="0" nullable="true" jdbcType="12"/>
+      <column name="SupportedApplicationID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="active" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6" def="MQ=="/>
+      <primary-key name="PRIMARY" columns="ID"/>
+      <foreign-key name="FKProtectedA723324" columns="SupportedApplicationID" ref-table="SupportedApplications" ref-schema="" ref-catalog="enrollerdb" ref-columns="ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FKProtectedA771720" columns="CustomerID" ref-table="Customer" ref-schema="" ref-catalog="enrollerdb" ref-columns="ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FKProtectedA959763" columns="UserID" ref-table="Users" ref-schema="" ref-catalog="enrollerdb" ref-columns="ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="FKApplicatio162256" table="ApplicationPolicies" schema="" catalog="enrollerdb" columns="ProtectedApplicationsID"/>
+      <index name="FKProtectedA723324" unique="false" columns="SupportedApplicationID"/>
+      <index name="FKProtectedA771720" unique="false" columns="CustomerID"/>
+      <index name="FKProtectedA959763" unique="false" columns="UserID"/>
+      <index name="IntegrationKey" unique="false" columns="IntegrationKey"/>
+      <index name="SecretKey" unique="false" columns="SecretKey"/>
+    </table>
+    <table name="Roles" schema="" catalog="enrollerdb" type="TABLE">
+      <column name="RoleName" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="DisplayName" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="ID"/>
+      <exported-key name="FKUsers380095" table="Users" schema="" catalog="enrollerdb" columns="RoleID"/>
+      <index name="RoleName" unique="true" columns="RoleName"/>
+    </table>
+    <table name="SupportedApplications" schema="" catalog="enrollerdb" type="TABLE">
+      <column name="ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="ApplicationName" sqlType="VARCHAR" precision="200" scale="0" nullable="false" jdbcType="12"/>
+      <column name="DisplayName" sqlType="VARCHAR" precision="200" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Description" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="Features" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="CreationDate" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91"/>
+      <primary-key name="PRIMARY" columns="ID"/>
+      <exported-key name="FKProtectedA723324" table="ProtectedApplications" schema="" catalog="enrollerdb" columns="SupportedApplicationID"/>
+      <index name="ApplicationName" unique="false" columns="ApplicationName"/>
+      <index name="DisplayName" unique="false" columns="DisplayName"/>
+    </table>
+    <table name="UserGroups" schema="" catalog="enrollerdb" type="TABLE">
+      <column name="ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="UserID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="GroupID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="IsActive" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6" def="MQ=="/>
+      <primary-key name="PRIMARY" columns="ID"/>
+      <foreign-key name="FKUserGroups359418" columns="GroupID" ref-table="Groups" ref-schema="" ref-catalog="enrollerdb" ref-columns="ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FKUserGroups984777" columns="UserID" ref-table="Users" ref-schema="" ref-catalog="enrollerdb" ref-columns="ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="FKUserGroups359418" unique="false" columns="GroupID"/>
+      <index name="FKUserGroups984777" unique="false" columns="UserID"/>
+    </table>
+    <table name="Users" schema="" catalog="enrollerdb" type="TABLE">
+      <column name="ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="UserName" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="EmailAddress" sqlType="VARCHAR" precision="200" scale="0" nullable="false" jdbcType="12"/>
+      <column name="RealName" sqlType="VARCHAR" precision="200" scale="0" nullable="false" jdbcType="12"/>
+      <column name="status" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="mobile" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="CustomerID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="RoleID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="Password" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="ID"/>
+      <foreign-key name="FKUsers380095" columns="RoleID" ref-table="Roles" ref-schema="" ref-catalog="enrollerdb" ref-columns="ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FKUsers128999" columns="CustomerID" ref-table="Customer" ref-schema="" ref-catalog="enrollerdb" ref-columns="ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="FKDefinedPol344676" table="DefinedPolicies" schema="" catalog="enrollerdb" columns="UserID"/>
+      <exported-key name="FKEndPoints271107" table="EndPoints" schema="" catalog="enrollerdb" columns="UserID"/>
+      <exported-key name="FKProtectedA959763" table="ProtectedApplications" schema="" catalog="enrollerdb" columns="UserID"/>
+      <exported-key name="FKUserGroups984777" table="UserGroups" schema="" catalog="enrollerdb" columns="UserID"/>
+      <index name="UserName" unique="true" columns="UserName"/>
+      <index name="EmailAddress" unique="false" columns="EmailAddress"/>
+      <index name="FKUsers128999" unique="false" columns="CustomerID"/>
+      <index name="FKUsers380095" unique="false" columns="RoleID"/>
+      <index name="mobile" unique="false" columns="mobile"/>
+      <index name="Password" unique="false" columns="Password"/>
+      <index name="RealName" unique="false" columns="RealName"/>
+      <index name="status" unique="false" columns="status"/>
+    </table>
+  </data-source>
+</component>

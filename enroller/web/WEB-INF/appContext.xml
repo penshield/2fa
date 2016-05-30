@@ -31,7 +31,7 @@ http://www.springframework.org/schema/jee
 ">
 
     <!-- Declares that spring will use annotations along with xml configuration in this file  -->
-    <context:component-scan base-package="com.degla"></context:component-scan>
+    <context:component-scan base-package="com.penshield"></context:component-scan>
 
     <context:annotation-config></context:annotation-config>
 
@@ -46,7 +46,7 @@ http://www.springframework.org/schema/jee
 
 
 
-   <!-- <sec:http
+    <!--<sec:http
               auto-config="true" use-expressions="true"
               security-context-repository-ref="noSessionContextRepository"
                create-session="always" access-denied-page="/web/NotAuthorized.xhtml">
@@ -68,8 +68,8 @@ http://www.springframework.org/schema/jee
             <sec:concurrency-control max-sessions="1" error-if-maximum-exceeded="true"  />
         </sec:session-management>
 
-    </sec:http>-->
-
+    </sec:http>
+-->
 
 
     <bean id="myCustomDetailsService" class="com.penshield.enroller.web.security.EnrollerSecurityDataService">
@@ -107,11 +107,13 @@ http://www.springframework.org/schema/jee
 
     <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
         <property name="dataSource" ref="datasource"/>
+        <property name="packagesToScan" value="com.penshield.enroller.db.models" />
         <property name="hibernateProperties">
             <props>
                 <prop key="hibernate.show_sql">true</prop>
-                <prop key="hibernate.hbm2ddl.auto">validate</prop>
+                <prop key="hibernate.hbm2ddl.auto">update</prop>
                 <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
+                <prop key="hibernate.ejb.entitymanager_factory_name">enrollerFactoryBean</prop>
             </props>
         </property>
     </bean>
@@ -126,6 +128,7 @@ http://www.springframework.org/schema/jee
             <props>
                 <prop key="hibernate.hbm2ddl.auto">update</prop>
                 <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
+                <prop key="hibernate.ejb.entitymanager_factory_name">enrollerFactoryBean</prop>
             </props>
         </property>
     </bean>
@@ -135,7 +138,7 @@ http://www.springframework.org/schema/jee
     </bean>
     <tx:annotation-driven />
 
-    <!--<jee:jndi-lookup id="entityManagerFactory" jndi-name="alfahresjndi"/>-->
+    <!--<jee:jndi-lookup id="entityManagerFactory" jndi-name="enrollerjndi"/>-->
 
     <tx:annotation-driven/>
    <!-- <tx:jta-transaction-manager   />-->

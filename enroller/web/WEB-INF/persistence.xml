@@ -3,12 +3,15 @@
              xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd">
 
 
-    <persistence-unit name="alfahres" transaction-type="JTA">
+    <persistence-unit name="enroller" transaction-type="JTA">
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
         <jta-data-source>enrollerjndi</jta-data-source>
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
-            <property name="hibernate.hbm2ddl.auto" value="validate"/>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+
+            <property name="hibernate.ejb.entitymanager_factory_name" value="enrollerFactoryBean"/>
+
         </properties>
     </persistence-unit>
 
