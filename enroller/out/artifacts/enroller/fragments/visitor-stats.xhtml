@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<f:view>
+
+
+    <div class="row">
+        <div class="col-md-12" data-widget-group="group1">
+            <div class="panel panel-default panel-btn-focused" data-widget="">
+                <div class="panel-heading">
+                    <div class="panel-ctrls"
+                         data-actions-container=""
+                         data-action-collapse='{"target": ".panel-body"}'
+                         data-action-colorpicker=''
+                            >
+                    </div>
+                    <h2>
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#tab-visitor" data-toggle="tab"><i class="fa fa-user visible-xs"></i><span class="hidden-xs">Visitor Stats</span></a></li>
+                            <li><a href="#tab-revenues" data-toggle="tab"><i class="fa fa-bar-chart-o visible-xs"></i><span class="hidden-xs">Revenues</span></a></li>
+                        </ul>
+                    </h2>
+                </div>
+                <div class="panel-editbox" data-widget-controls=""></div>
+                <div class="panel-body">
+                    <div class="tab-content">
+                        <div class="clearfix">
+                            <button class="btn btn-default pull-left" id="daterangepicker2">
+                                <i class="fa fa-calendar visible-xs"></i>
+                                <span class="hidden-xs" style="text-transform: uppercase;"><?php echo date("F j, Y", strtotime('-30 day')); ?> - <?php echo date("F j, Y"); ?></span> <b class="caret"></b>
+                            </button>
+
+                            <div class="btn-toolbar pull-right">
+                                <div class="btn-group">
+                                    <a href='#' class="btn btn-default dropdown-toggle" data-toggle='dropdown'><i class="fa fa-cloud-download visible-xs"></i><span class="hidden-xs">Export as </span> <span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">Text File (*.txt)</a></li>
+                                        <li><a href="#">Excel File (*.xlsx)</a></li>
+                                        <li><a href="#">PDF File (*.pdf)</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="tab-visitor" class="tab-pane active">
+                            <div id="visitors-stats" style="height:250px;width: 100%;" class="demo-graph graph-1"></div>
+                        </div>
+                        <div id="tab-revenues" class="tab-pane">
+                            <div id="revenues-stats" style="height: 250px;width: 100%;" class="demo-graph graph-2"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</f:view>
+</html>

@@ -1,0 +1,666 @@
+<!DOCTYPE  html  [
+<!ENTITY nbsp "&#160;">
+<!ENTITY copy "&#169;">
+<!ENTITY bull "&#8226;"> ]>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:head>
+
+    <meta charset="utf-8"/>
+    <title>
+        <ui:insert name="pageTitle">
+            Enroller - Dashboard
+        </ui:insert>
+    </title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-touch-fullscreen" content="yes"/>
+    <meta name="description" content="Avalon Admin Theme"/>
+    <meta name="author" content="The Red Team"/>
+
+        <link rel='shortcut icon' type='image/x-icon' href='/favicon.ico' />
+
+        <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400italic,700' rel='stylesheet' type='text/css'/>
+
+
+        <ui:include src="StyleSheets.xhtml"/>
+
+    </h:head>
+    <body class="infobar-offcanvas">
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','../www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-44426473-3', 'auto');
+            ga('send', 'pageview');
+        </script>
+
+        <!-- This section includes the toggable header bar-->
+        <ui:include src="../fragments/toggableHeaderBar.html"/>
+
+        <header id="topnav" class="navbar navbar-inverse navbar-fixed-top clearfix" role="banner">
+
+
+            <a id="leftmenu-trigger" class="" data-toggle="tooltip" data-placement="right" title="Toggle Sidebar"></a>
+            <a class="navbar-brand" href="index-2.html">Avalon</a>
+
+
+
+            <div class="yamm navbar-left navbar-collapse collapse in">
+            </div>
+
+            <ul class="nav navbar-nav toolbar pull-right">
+                <li class="dropdown">
+                    <a href="#" id="navbar-links-toggle" data-toggle="collapse" data-target="header>.navbar-collapse"></a>
+                </li>
+
+                <li class="toolbar-icon-bg demo-headerdrop-hidden">
+                    <a href="#" id="headerbardropdown"><span class="icon-bg"><i class="fa fa-fw fa-level-down"></i></span>
+                    </a>
+            </li>
+
+            <li class="dropdown toolbar-icon-bg">
+                <a href="#" class="hasnotifications dropdown-toggle" data-toggle='dropdown'><span class="icon-bg"><i class="fa fa-fw fa-bell"></i></span><span class="badge badge-alizarin">5</span></a>
+                <div class="dropdown-menu notifications arrow">
+                    <div class="dd-header">
+                        <span>Notifications</span>
+                        <span><a href="#">Settings</a></span>
+                    </div>
+                    <ul class="scrollthis">
+                        <li class="">
+                            <a href="#" class="notification-success">
+                                <div class="notification-icon"><i class="fa fa-check fa-fw"></i></div>
+                                <div class="notification-content"><strong>Lorem ipsum</strong> dolor sit amet consectetur adipisicing elit!</div>
+                                <div class="notification-time">40m</div>
+                            </a>
+                        </li>
+                        <li class="">
+                            <a href="#" class="notification-danger">
+                                <div class="notification-icon"><i class="fa fa-times fa-fw"></i></div>
+                                <div class="notification-content">Etiam porta sem malesuada</div>
+                                <div class="notification-time">5h</div>
+                            </a>
+                        </li>
+                        <li class="">
+                            <a href="#" class="notification-inverse">
+                                <div class="notification-icon"><i class="fa fa-cloud fa-fw"></i></div>
+                                <div class="notification-content"><strong>Nesciunt</strong> reprehenderit provident distinctio eveniet cupiditate atque</div>
+                                <div class="notification-time">16h</div>
+                            </a>
+                        </li>
+                        <li class="">
+                            <a href="#" class="notification-warning">
+                                <div class="notification-icon"><i class="fa fa-warning fa-fw"></i></div>
+                                <div class="notification-content">Aperiam accusamus modi ipsum officia quas nisi!</div>
+                                <div class="notification-time">1d</div>
+                            </a>
+                        </li>
+                        <li class="">
+                            <a href="#" class="notification-info">
+                                <div class="notification-icon"><i class="fa fa-shopping-cart fa-fw"></i></div>
+                                <div class="notification-content">Libero distinctio eveniet</div>
+                                <div class="notification-time">5d</div>
+                            </a>
+                        </li>
+                        <li class="">
+                            <a href="#" class="notification-primary">
+                                <div class="notification-icon"><i class="fa fa-comment fa-fw"></i></div>
+                                <div class="notification-content">Officiis modi ipsum officia ad dolor sit amet consectetur sit voluptatem accusantium doloremque laudantium totam rem aperiam</div>
+                                <div class="notification-time">8d</div>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="dd-footer">
+                        <a href="#">View all notifications</a>
+                    </div>
+                </div>
+            </li>
+
+            <li class="dropdown toolbar-icon-bg hidden-xs">
+                <a href="#" class="hasnotifications dropdown-toggle" data-toggle='dropdown'><span class="icon-bg"><i class="fa fa-fw fa-envelope"></i></span><span class="badge badge-info">1</span></a>
+                <div class="dropdown-menu messages arrow">
+                    <div class="dd-header">
+                        <span>Messages</span>
+                        <span><a href="#">Settings</a></span>
+                    </div>
+
+                    <ul class="scrollthis">
+                        <li class="">
+                            <a href="#">
+                                <h:graphicImage styleClass="msg-avatar"   name="assets/demo/avatar/avatar_09.png" alt="avatar" />
+                                <div class="msg-content">
+                                    <span class="name">Steven Shipe</span>
+                                    <span class="msg">Nonummy nibh epismod lorem ipsum</span>
+                                </div>
+                                <span class="msg-time">30s</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <h:graphicImage styleClass="msg-avatar" name="assets/demo/avatar/avatar_01.png" alt="avatar" />
+                                <div class="msg-content">
+                                    <span class="name">Roxann Hollingworth <i class="fa fa-paperclip attachment"></i></span>
+                                    <span class="msg">Lorem ipsum dolor sit amet consectetur adipisicing elit</span>
+                                </div>
+                                <span class="msg-time">5m</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <h:graphicImage styleClass="msg-avatar" name="assets/demo/avatar/avatar_05.png" alt="avatar" />
+                                <div class="msg-content">
+                                    <span class="name">Diamond Harlands</span>
+                                    <span class="msg">:)</span>
+                                </div>
+                                <span class="msg-time">3h</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <h:graphicImage styleClass="msg-avatar" name="assets/demo/avatar/avatar_02.png" alt="avatar" />
+                                <div class="msg-content">
+                                    <span class="name">Michael Serio <i class="fa fa-paperclip attachment"></i></span>
+                                    <span class="msg">Sed distinctio dolores fuga molestiae modi?</span>
+                                </div>
+                                <span class="msg-time">12h</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <h:graphicImage styleClass="msg-avatar" name="assets/demo/avatar/avatar_03.png" alt="avatar" />
+                                <div class="msg-content">
+                                    <span class="name">Matt Jones</span>
+                                    <span class="msg">Tempor<ul class="nav navbar-nav toolbar pull-right">
+                <li class="dropdown">
+                    <a href="#" id="navbar-links-toggle" data-toggle="collapse" data-target="header>.navbar-collapse"></a>
+                </li>
+
+                <li class="toolbar-icon-bg demo-headerdrop-hidden">
+                    <a href="#" id="headerbardropdown"><span class="icon-bg"><i class="fa fa-fw fa-level-down"></i></span>
+                    </a>
+            </li>
+
+
+            <li class="dropdown toolbar-icon-bg hidden-xs">
+                <a href="#" class="hasnotifications dropdown-toggle" data-toggle='dropdown'><span class="icon-bg"><i class="fa fa-fw fa-tasks"></i></span><span class="badge badge-warning">7</span></a>
+                <div class="dropdown-menu taskprogresses arrow">
+                    <div class="dd-header">
+                        <span>Tasks</span>
+                        <span><a href="#">Settings</a></span>
+                    </div>
+                    <ul class="scrollthis">
+                        <li>
+                            <a href="#">
+                                <div class="contextual-progress">
+                                    <div class="clearfix">
+                                        <div class="progress-title">Template Styling</div>
+                                        <div class="progress-percentage">5/25</div>
+                                    </div>
+                                    <div class="progress progress-lg">
+                                        <div class="progress-bar progress-bar-inverse" style="width: 20%"></div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="contextual-progress">
+                                    <div class="clearfix">
+                                        <div class="progress-title">App Development</div>
+                                        <div class="progress-percentage">3/9</div>
+                                    </div>
+                                    <div class="progress progress-lg progress-striped active">
+                                        <div class="progress-bar progress-bar-success" style="width: 33%"></div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="contextual-progress">
+                                    <div class="clearfix">
+                                        <div class="progress-title">App Interface</div>
+                                        <div class="progress-percentage">15%</div>
+                                    </div>
+                                    <div class="progress">
+                                        <div class="progress-bar progress-bar-danger" style="width: 15%"></div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="contextual-progress">
+                                    <div class="clearfix">
+                                        <div class="progress-title">Documentation</div>
+                                        <div class="progress-percentage">4/5</div>
+                                    </div>
+                                    <div class="progress">
+                                        <div class="progress-bar progress-bar-primary" style="width: 80%"></div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="contextual-progress">
+                                    <div class="clearfix">
+                                        <div class="progress-title">eCommerce</div>
+                                        <div class="progress-percentage">6/10</div>
+                                    </div>
+                                    <div class="progress progress-striped active">
+                                        <div class="progress-bar progress-bar-warning" style="width: 60%"></div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+
+
+                    </ul>
+                    <div class="dd-footer">
+                        <a href="#">View all tasks</a>
+                    </div>
+                </div>
+            </li>
+
+
+            <li class="dropdown toolbar-icon-bg">
+                <a href="#" class="hasnotifications dropdown-toggle" data-toggle='dropdown'><span class="icon-bg"><i class="fa fa-fw fa-bell"></i></span><span class="badge badge-alizarin">5</span></a>
+                <div class="dropdown-menu notifications arrow">
+                    <div class="dd-header">
+                        <span>Notifications</span>
+                        <span><a href="#">Settings</a></span>
+                    </div>
+                    <ul class="scrollthis">
+                        <li class="">
+                            <a href="#" class="notification-success">
+                                <div class="notification-icon"><i class="fa fa-check fa-fw"></i></div>
+                                <div class="notification-content"><strong>Lorem ipsum</strong> dolor sit amet consectetur adipisicing elit!</div>
+                                <div class="notification-time">40m</div>
+                            </a>
+                        </li>
+                        <li class="">
+                            <a href="#" class="notification-danger">
+                                <div class="notification-icon"><i class="fa fa-times fa-fw"></i></div>
+                                <div class="notification-content">Etiam porta sem malesuada</div>
+                                <div class="notification-time">5h</div>
+                            </a>
+                        </li>
+                        <li class="">
+                            <a href="#" class="notification-inverse">
+                                <div class="notification-icon"><i class="fa fa-cloud fa-fw"></i></div>
+                                <div class="notification-content"><strong>Nesciunt</strong> reprehenderit provident distinctio eveniet cupiditate atque</div>
+                                <div class="notification-time">16h</div>
+                            </a>
+                        </li>
+                        <li class="">
+                            <a href="#" class="notification-warning">
+                                <div class="notification-icon"><i class="fa fa-warning fa-fw"></i></div>
+                                <div class="notification-content">Aperiam accusamus modi ipsum officia quas nisi!</div>
+                                <div class="notification-time">1d</div>
+                            </a>
+                        </li>
+                        <li class="">
+                            <a href="#" class="notification-info">
+                                <div class="notification-icon"><i class="fa fa-shopping-cart fa-fw"></i></div>
+                                <div class="notification-content">Libero distinctio eveniet</div>
+                                <div class="notification-time">5d</div>
+                            </a>
+                        </li>
+                        <li class="">
+                            <a href="#" class="notification-primary">
+                                <div class="notification-icon"><i class="fa fa-comment fa-fw"></i></div>
+                                <div class="notification-content">Officiis modi ipsum officia ad dolor sit amet consectetur sit voluptatem accusantium doloremque laudantium totam rem aperiam</div>
+                                <div class="notification-time">8d</div>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="dd-footer">
+                        <a href="#">View all notifications</a>
+                    </div>
+                </div>
+            </li>
+
+            <li class="dropdown toolbar-icon-bg hidden-xs">
+                <a href="#" class="hasnotifications dropdown-toggle" data-toggle='dropdown'><span class="icon-bg"><i class="fa fa-fw fa-envelope"></i></span><span class="badge badge-info">1</span></a>
+                <div class="dropdown-menu messages arrow">
+                    <div class="dd-header">
+                        <span>Messages</span>
+                        <span><a href="#">Settings</a></span>
+                    </div>
+
+                    <ul class="scrollthis">
+                        <li class="">
+                            <a href="#">
+                                <h:graphicImage styleClass="msg-avatar" name="assets/demo/avatar/avatar_09.png" alt="avatar" />
+                                <div class="msg-content">
+                                    <span class="name">Steven Shipe</span>
+                                    <span class="msg">Nonummy nibh epismod lorem ipsum</span>
+                                </div>
+                                <span class="msg-time">30s</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <h:graphicImage styleClass="msg-avatar" name="assets/demo/avatar/avatar_01.png" alt="avatar" />
+                                <div class="msg-content">
+                                    <span class="name">Roxann Hollingworth <i class="fa fa-paperclip attachment"></i></span>
+                                    <span class="msg">Lorem ipsum dolor sit amet consectetur adipisicing elit</span>
+                                </div>
+                                <span class="msg-time">5m</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <h:graphicImage styleClass="msg-avatar" name="assets/demo/avatar/avatar_05.png" alt="avatar" />
+                                <div class="msg-content">
+                                    <span class="name">Diamond Harlands</span>
+                                    <span class="msg">:)</span>
+                                </div>
+                                <span class="msg-time">3h</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <h:graphicImage styleClass="msg-avatar" name="assets/demo/avatar/avatar_02.png" alt="avatar" />
+                                <div class="msg-content">
+                                    <span class="name">Michael Serio <i class="fa fa-paperclip attachment"></i></span>
+                                    <span class="msg">Sed distinctio dolores fuga molestiae modi?</span>
+                                </div>
+                                <span class="msg-time">12h</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <h:graphicImage styleClass="msg-avatar" name="assets/demo/avatar/avatar_03.png" alt="avatar" />
+                                <div class="msg-content">
+                                    <span class="name">Matt Jones</span>
+                                    <span class="msg">Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et mole</span>
+                                </div>
+                                <span class="msg-time">2d</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <h:graphicImage styleClass="msg-avatar" name="assets/demo/avatar/avatar_07.png" alt="avatar" />
+                                <div class="msg-content">
+                                    <span class="name">John Doe</span>
+                                    <span class="msg">Neque porro quisquam est qui dolorem</span>
+                                </div>
+                                <span class="msg-time">7d</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="dd-footer"><a href="#">View all messages</a></div>
+                </div>
+            </li>
+
+            <li class="dropdown toolbar-icon-bg demo-search-hidden mr5">
+                <a href="#" class="dropdown-toggle tooltips" data-toggle="dropdown"><span class="icon-bg"><i class="fa fa-fw fa-search"></i></span></a>
+
+                <div class="dropdown-menu arrow search dropdown-menu-form">
+                    <div class="dd-header">
+                        <span>Search</span>
+                        <span><a href="#">Advanced search</a></span>
+                    </div>
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder=""/>
+
+					<span class="input-group-btn">
+
+						<a class="btn btn-primary" href="#">Search</a>
+					</span>
+                    </div>
+                </div>
+            </li>
+
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle username" data-toggle="dropdown">
+                    <span class="hidden-xs">Alexander Smith</span>
+                    <h:graphicImage styleClass="img-circle" name="assets/demo/avatar/avatar_06.png" alt="Dangerfield" />
+
+                </a>
+                <ul class="dropdown-menu userinfo">
+                    <li><a href="#"><span class="pull-left">Edit Profile</span> <i class="pull-right fa fa-pencil"></i></a></li>
+                    <li><a href="#"><span class="pull-left">Account Settings</span> <i class="pull-right fa fa-cogs"></i></a></li>
+                    <li><a href="#"><span class="pull-left">Help</span> <i class="pull-right fa fa-question-circle"></i></a></li>
+                    <li class="divider"></li>
+                    <li><a href="#"><span class="pull-left">Earnings</span> <i class="pull-right fa fa-money"></i></a></li>
+                    <li><a href="#"><span class="pull-left">Statement</span> <i class="pull-right fa fa-file-o"></i></a></li>
+                    <li><a href="#"><span class="pull-left">Withdrawals</span> <i class="pull-right fa fa-credit-card"></i></a></li>
+                    <li class="divider"></li>
+                    <li><a href="#"><span class="pull-left">Sign Out</span> <i class="pull-right fa fa-sign-out"></i></a></li>
+                </ul>
+            </li>
+
+        </ul>ibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et mole</span>
+                                </div>
+                                <span class="msg-time">2d</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <h:graphicImage styleClass="msg-avatar" name="assets/demo/avatar/avatar_07.png" alt="avatar" />
+                                <div class="msg-content">
+                                    <span class="name">John Doe</span>
+                                    <span class="msg">Neque porro quisquam est qui dolorem</span>
+                                </div>
+                                <span class="msg-time">7d</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="dd-footer"><a href="#">View all messages</a></div>
+                </div>
+            </li>
+
+            <li class="dropdown toolbar-icon-bg demo-search-hidden mr5">
+                <a href="#" class="dropdown-toggle tooltips" data-toggle="dropdown"><span class="icon-bg"><i class="fa fa-fw fa-search"></i></span></a>
+
+                <div class="dropdown-menu arrow search dropdown-menu-form">
+                    <div class="dd-header">
+                        <span>Search</span>
+                        <span><a href="#">Advanced search</a></span>
+                    </div>
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder=""/>
+
+					<span class="input-group-btn">
+
+						<a class="btn btn-primary" href="#">Search</a>
+					</span>
+                    </div>
+                </div>
+            </li>
+
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle username" data-toggle="dropdown">
+                    <span class="hidden-xs">Alexander Smith</span>
+                    <h:graphicImage styleClass="img-circle" name="assets/demo/avatar/avatar_06.png" alt="Dangerfield" />
+
+                </a>
+                <ul class="dropdown-menu userinfo">
+                    <li><a href="#"><span class="pull-left">Edit Profile</span> <i class="pull-right fa fa-pencil"></i></a></li>
+                    <li><a href="#"><span class="pull-left">Account Settings</span> <i class="pull-right fa fa-cogs"></i></a></li>
+                    <li><a href="#"><span class="pull-left">Help</span> <i class="pull-right fa fa-question-circle"></i></a></li>
+                    <li class="divider"></li>
+                    <li><a href="#"><span class="pull-left">Earnings</span> <i class="pull-right fa fa-money"></i></a></li>
+                    <li><a href="#"><span class="pull-left">Statement</span> <i class="pull-right fa fa-file-o"></i></a></li>
+                    <li><a href="#"><span class="pull-left">Withdrawals</span> <i class="pull-right fa fa-credit-card"></i></a></li>
+                    <li class="divider"></li>
+                    <li><a href="#"><span class="pull-left">Sign Out</span> <i class="pull-right fa fa-sign-out"></i></a></li>
+                </ul>
+            </li>
+
+        </ul>
+
+    </header>
+
+
+        <div id="wrapper">
+            <div id="layout-static">
+                <div class="static-sidebar-wrapper sidebar-default">
+                    <div class="static-sidebar">
+                        <div class="sidebar">
+
+
+                            <div class="widget stay-on-collapse">
+                                <div class="widget-body welcome-box tabular">
+                                    <div class="tabular-row">
+                                        <div class="tabular-cell welcome-avatar">
+                                            <a href="#"><h:graphicImage name="assets/demo/avatar/avatar_06.png" styleClass="avatar"/></a>
+                                        </div>
+                                        <div class="tabular-cell welcome-options">
+                                            <span class="welcome-text">Welcome,</span>
+                                            <a href="#" class="name">Alexander Smith</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="widget stay-on-collapse" id="widget-sidebar">
+                                <span class="widget-heading">Manage</span>
+                                <nav role="navigation" class="widget-body">
+                                    <ul class="acc-menu">
+                                        <li><h:link outcome="/index.xhtml"><i class="fa fa-home"></i><span>Dashboard</span></h:link></li>
+                                        <li><a href="javascript:;"><i class="fa fa-user"></i><span>Users</span><span class="badge badge-success">23</span></a>
+                                            <ul class="acc-menu">
+                                                <li><h:link styleClass="fa  fa-hand-o-right" outcome="/pages/DisplayUsers.xhtml"> Display Users</h:link></li>
+
+                                                <li><h:link styleClass="fa  fa-hand-o-right" outcome="/pages/DisplayUnrolledUsers.xhtml"> Display Un-Enrolled Users</h:link></li>
+
+                                                <li><h:link styleClass="fa  fa-hand-o-right" outcome="/pages/ImportUsersAD.xhtml"> Import Users - Active Directory</h:link></li>
+                                                <li><h:link styleClass="fa  fa-hand-o-right" outcome="/pages/ImportUsersCSV.xhtml"> Import Users - CSV</h:link></li>
+
+                                            </ul>
+                                        </li>
+                                        <li><a href="javascript:;"><i class="fa fa-group"></i><span>Groups</span><span class="badge badge-success">2</span></a>
+                                            <ul class="acc-menu">
+                                                <li><h:link styleClass="fa  fa-hand-o-right" outcome="/groups/DisplayGroups.xhtml"> Display Groups</h:link></li>
+                                                <li><h:link styleClass="fa  fa-hand-o-right" outcome="/groups/AddGroup.xhtml"> Add A Group</h:link></li>
+
+                                            </ul>
+                                        </li>
+
+                                        <li><a href="javascript:;"><i class="fa fa-cog"></i><span>Administrators</span><span class="badge badge-dark">1</span></a>
+                                            <ul class="acc-menu">
+                                                <li><h:link styleClass="fa  fa-hand-o-right" outcome="/admin/DisplayAdministrators.xhtml"> Display Administrator</h:link></li>
+                                                <li><h:link styleClass="fa  fa-hand-o-right" outcome="/admin/AddAdministrator.xhtml"> Add An Administrator</h:link></li>
+
+                                            </ul>
+                                        </li>
+
+                                        <li><a href="javascript:;"><i class="fa fa-laptop"></i><span>Endpoints</span><span class="badge badge-info">6</span></a>
+                                            <ul class="acc-menu">
+                                                <li><h:link styleClass="fa  fa-hand-o-right" outcome="/endpoints/DisplayEndpoints.xhtml"> Display Enrolled Endpoints</h:link></li>
+
+
+                                            </ul>
+                                        </li>
+
+
+                                        <li><a href="javascript:;"><i class="fa fa-windows"></i><span>Applications</span><span class="badge badge-success">5</span></a>
+                                            <ul class="acc-menu">
+                                                <li><h:link styleClass="fa  fa-hand-o-right" outcome="/applications/DisplayApplications.xhtml"> Display Applications</h:link></li>
+
+                                            </ul>
+                                        </li>
+
+                                        <li><a href="javascript:;"><i class="fa fa-bar-chart-o"></i><span>Devices Insights</span></a>
+                                            <ul class="acc-menu">
+                                                <li><h:link styleClass="fa  fa-hand-o-right" outcome="/insights/DisplayInsights.xhtml"> Display Insights</h:link></li>
+                                            </ul>
+                                        </li>
+
+                                        <li><a href="javascript:;"><i class="fa fa-briefcase"></i><span>Policies</span><span class="badge badge-dark">10</span></a>
+                                            <ul class="acc-menu">
+                                                <li><h:link styleClass="fa  fa-hand-o-right" outcome="/policies/DisplayPolicies.xhtml"> Display Policies</h:link></li>
+                                            </ul>
+                                        </li>
+
+
+                                    </ul>
+                                </nav>
+                            </div>
+
+
+                            <div class="widget stay-on-collapse">
+                                <div class="widget-heading">Settings and Reporting</div>
+                                <nav role="navigation" class="widget-body">
+                                    <ul class="acc-menu">
+                                        <li><h:link outcome="/policies/DisplayPolicies.xhtml"><i class="fa fa-support"></i><span>Support Tickets</span><span class="badge badge-success">3</span></h:link></li>
+                                        <li><h:link outcome="/policies/DisplayPolicies.xhtml"><i class="fa fa-gear"></i><span>Settings</span></h:link></li>
+                                        <li><h:link outcome="/policies/DisplayPolicies.xhtml"><i class="fa fa-bar-chart-o"></i><span>Reporting</span></h:link></li>
+                                    </ul>
+                                </nav>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+                <div class="static-content-wrapper">
+                    <div class="static-content">
+                        <div class="page-content">
+                            <div class="page-heading">
+                                <h1>Dashboard</h1>
+                                <div class="options">
+                                    <div class="btn-toolbar">
+                                        <a href="#" class="btn btn-default"><i class="fa fa-fw fa-cog"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <ol class="breadcrumb">
+
+<li class="active"><a href="index.html">Home</a></li>
+
+                            </ol> -->
+                            <div class="container-fluid">
+
+
+                                <div id="panel-advancedoptions">
+
+                                    <ui:insert name="mainContents">
+
+                                    </ui:insert>
+
+                                </div>
+
+
+                            </div> <!-- .container-fluid -->
+                        </div> <!-- #page-content -->
+                    </div>
+                    <footer role="contentinfo">
+                        <div class="clearfix">
+                            <ul class="list-unstyled list-inline pull-left">
+                                <li><h6 style="margin: 0;"> &copy; 2016 Penshield - www.penshield.com</h6></li>
+                            </ul>
+                            <button class="pull-right btn btn-link btn-xs hidden-print" id="back-to-top"><i class="fa fa-arrow-up"></i></button>
+                        </div>
+                    </footer>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+        <!--Header Section-->
+
+        <!-- Scripts include section at the end of the body of the page -->
+
+    <ui:include src="FooterScripts.xhtml"/>
+
+    </body>
+
+</html>
