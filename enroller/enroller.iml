@@ -26,6 +26,7 @@
         <setting name="provider-name" value="" />
         <datasource-mapping>
           <factory-entry name="alfahres" />
+          <factory-entry name="enroller" />
           <factory-entry name="myEmf" value="datasource" />
         </datasource-mapping>
         <deploymentDescriptor name="persistence.xml" url="file://$MODULE_DIR$/web/WEB-INF/persistence.xml" />

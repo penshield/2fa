@@ -30,7 +30,7 @@ public class EnrollerBootStrap implements ApplicationContextAware, InitializingB
     protected EnrollerDBService enrollerService;
 
 
-    @Override
+
     public void afterPropertiesSet() throws Exception {
 
         if(enrollerService != null){
@@ -94,7 +94,7 @@ public class EnrollerBootStrap implements ApplicationContextAware, InitializingB
         System.out.println("Customer has been created");
     }
 
-    @Override
+
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
 
         this.context = applicationContext;

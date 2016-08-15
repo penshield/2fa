@@ -115,7 +115,7 @@ public class UserEO extends EntityEO implements Serializable , UserDetails {
         this.customer = customer;
     }
 
-    @Override
+
     public Collection<? extends GrantedAuthority> getAuthorities() {
 
         List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
@@ -124,34 +124,34 @@ public class UserEO extends EntityEO implements Serializable , UserDetails {
         return authorities;
     }
 
-    @Override
+
     public String getPassword() {
         return  this.password;
 
     }
 
-    @Override
+
     public String getUsername() {
         return this.getUserName();
     }
 
-    @Override
+
     public boolean isAccountNonExpired() {
         return true;
     }
 
-    @Override
+
     public boolean isAccountNonLocked() {
 
         return this.getStatus().asBoolean();
     }
 
-    @Override
+
     public boolean isCredentialsNonExpired() {
         return true;
     }
 
-    @Override
+
     public boolean isEnabled() {
         return this.getStatus().asBoolean();
     }

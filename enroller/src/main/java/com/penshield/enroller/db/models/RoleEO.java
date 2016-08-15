@@ -27,7 +27,7 @@ public class RoleEO extends EntityEO implements Serializable,GrantedAuthority {
         this.displayName = display;
     }
 
-    @Override
+
     public String getAuthority() {
 
 

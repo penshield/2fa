@@ -16,12 +16,12 @@ import java.util.Collection;
 public class EnrollerSecurityDataService implements UserDetailsService, ApplicationContextAware {
 
 
-    @Override
+
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
 
     }
 
-    @Override
+
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
         return null;
     }
